@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CoachPanel — Asistencia y prácticas de robótica LEGO</title>
+  <meta name="description" content="Control de asistencia, prácticas de pista y participación en la WRO Venezuela para un club de robótica LEGO.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="robots" content="noindex, nofollow">
+
+  <base href="./">
+
+  <link rel="icon" href="./icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/app.css">
+  <link rel="stylesheet" href="./styles/print.css" media="print">
+</head>
+<body>
+  <a class="solo-lectores" href="#contenido">Saltar al contenido principal</a>
+
+  <div id="raiz" aria-live="polite">
+    <!-- Esqueleto de arranque: se ve mientras se comprueba la conexión -->
+    <div class="acceso">
+      <div class="acceso__caja">
+        <div class="esqueleto" style="width:84px;height:84px;border-radius:20px;margin:0 auto 1.5rem"></div>
+        <div class="esqueleto esqueleto--linea" style="width:60%;margin:0 auto .75rem"></div>
+        <div class="esqueleto esqueleto--linea" style="width:80%;margin:0 auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div style="padding:2rem;font-family:system-ui,sans-serif;color:#f1f5f9;background:#0b1220;min-height:100vh">
+      <h1>CoachPanel necesita JavaScript</h1>
+      <p>Activa JavaScript en tu navegador para poder usar la aplicación.</p>
+    </div>
+  </noscript>
+
+  <script type="module">
+    import { arrancar } from './js/arranque.js';
+
+    const raiz = document.getElementById('raiz');
+
+    arrancar(raiz).catch((error) => {
+      console.error('Fallo al arrancar CoachPanel:', error);
+      raiz.innerHTML = '';
+      const caja = document.createElement('div');
+      caja.className = 'acceso';
+      caja.innerHTML = `
+        <div class="acceso__caja tarjeta tarjeta--studs">
+          <h1>No se pudo iniciar la aplicación</h1>
+          <p class="vacio__texto" style="margin:0 auto"></p>
+          <p class="campo__ayuda" style="margin-top:1rem">
+            Revisa la consola del navegador (tecla F12) para ver el detalle,
+            o consulta GUIA-DESPLIEGUE.md.
+          </p>
+        </div>`;
+      caja.querySelector('p.vacio__texto').textContent = error?.message ?? 'Error inesperado.';
+      raiz.append(caja);
+    });
+  </script>
+</body>
+</html>

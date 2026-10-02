@@ -1,0 +1,24 @@
+# Nunca subir datos de los niños al repositorio
+datos/
+*.db
+*.sqlite
+*.sqlite3
+
+# Respaldos generados por scripts/respaldar.mjs
+respaldos/
+respaldo-*.csv
+respaldo-*.json
+
+# Configuración privada real (la de docs/js/config.js SÍ se sube, por decisión del proyecto)
+config.privada.js
+.env
+.env.*
+
+# Sistema
+__pycache__/
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+node_modules/

@@ -1,0 +1,134 @@
+/* ==========================================================================
+   CoachPanel — tokens.css
+   Variables de diseño: color, tipografía, espaciado, sombras, movimiento.
+   Dos temas (claro y oscuro) sobre las mismas variables.
+   Identidad visual: taller de robótica LEGO (studs, bordes de ladrillo,
+   números tabulares para tiempos y puntajes).
+   ========================================================================== */
+
+:root {
+  /* ---- Marca ---- */
+  --cian: #22d3ee;
+  --cian-oscuro: #0891b2;
+  --cian-claro: #67e8f9;
+  --ambar: #fbbf24;
+  --ambar-oscuro: #b45309;
+  --violeta: #a78bfa;
+  --verde: #34d399;
+  --rojo: #f87171;
+  --rojo-fuerte: #ef4444;
+  --naranja: #fb923c;
+  --gris-azul: #94a3b8;
+
+  /* ---- Estados de asistencia ---- */
+  --presente: #34d399;
+  --ausente: #f87171;
+  --tarde: #fbbf24;
+  --justificado: #94a3b8;
+
+  /* ---- Tipografía ---- */
+  --fuente: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system,
+    'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fuente-titulo: 'Segoe UI Variable Display', 'Segoe UI', system-ui,
+    -apple-system, 'Inter', Roboto, sans-serif;
+  --fuente-numeros: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas,
+    'Liberation Mono', monospace;
+
+  --tam-xs: 0.75rem;
+  --tam-sm: 0.875rem;
+  --tam-base: 1rem;
+  --tam-lg: 1.125rem;
+  --tam-xl: 1.375rem;
+  --tam-2xl: 1.75rem;
+  --tam-3xl: 2.25rem;
+  --tam-4xl: 3rem;
+
+  /* ---- Espaciado ---- */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4rem;
+
+  /* ---- Formas ---- */
+  --radio-sm: 6px;
+  --radio: 10px;
+  --radio-lg: 16px;
+  --radio-completo: 999px;
+
+  /* ---- Movimiento ---- */
+  --rapido: 150ms;
+  --medio: 200ms;
+  --curva: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Layout ---- */
+  --ancho-max: 1180px;
+  --alto-encabezado: 64px;
+  --ancho-nav: 232px;
+}
+
+/* ==========================  TEMA OSCURO (por defecto)  ================== */
+:root,
+:root[data-tema='oscuro'] {
+  --fondo: #0b1220;
+  --fondo-alt: #0f172a;
+  --superficie: #1e2939;
+  --superficie-2: #243347;
+  --superficie-3: #2d3f56;
+  --borde: #334155;
+  --borde-suave: #26364c;
+  --texto: #f1f5f9;
+  --texto-suave: #cbd5e1;
+  --texto-apagado: #94a3b8;
+  --primario: var(--cian);
+  --primario-texto: #052a33;
+  --sombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.28);
+  --sombra-suave: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --brillo: 0 0 0 1px rgba(34, 211, 238, 0.35), 0 0 24px rgba(34, 211, 238, 0.12);
+  --velo: rgba(3, 7, 18, 0.72);
+  --stud: rgba(255, 255, 255, 0.08);
+  --stud-activo: rgba(34, 211, 238, 0.5);
+  color-scheme: dark;
+}
+
+/* ==========================  TEMA CLARO  ================================ */
+:root[data-tema='claro'] {
+  --fondo: #f6f8fc;
+  --fondo-alt: #eef2f9;
+  --superficie: #ffffff;
+  --superficie-2: #f4f7fb;
+  --superficie-3: #e6ecf5;
+  --borde: #cbd5e1;
+  --borde-suave: #e2e8f0;
+  --texto: #0f172a;
+  --texto-suave: #334155;
+  --texto-apagado: #5c6b80;
+  --primario: var(--cian-oscuro);
+  --primario-texto: #ffffff;
+  --sombra: 0 1px 2px rgba(15, 23, 42, 0.08), 0 8px 20px rgba(15, 23, 42, 0.08);
+  --sombra-suave: 0 1px 3px rgba(15, 23, 42, 0.1);
+  --brillo: 0 0 0 1px rgba(8, 145, 178, 0.3), 0 0 20px rgba(8, 145, 178, 0.1);
+  --velo: rgba(15, 23, 42, 0.55);
+  --stud: rgba(15, 23, 42, 0.08);
+  --stud-activo: rgba(8, 145, 178, 0.45);
+  color-scheme: light;
+}
+
+/* Ajustes de contraste para los estados sobre fondo claro */
+:root[data-tema='claro'] {
+  --presente: #059669;
+  --ausente: #dc2626;
+  --tarde: #b45309;
+  --justificado: #64748b;
+}
+
+/* ==========================  MOVIMIENTO REDUCIDO  ====================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --rapido: 1ms;
+    --medio: 1ms;
+  }
+}

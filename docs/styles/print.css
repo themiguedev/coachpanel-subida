@@ -1,0 +1,112 @@
+/* ==========================================================================
+   CoachPanel — print.css
+   Hoja de impresión para el reporte de la WRO y las listas de asistencia.
+   Se carga siempre con media="print" para no afectar la pantalla.
+   ========================================================================== */
+
+@media print {
+  :root {
+    --fondo: #fff;
+    --fondo-alt: #fff;
+    --superficie: #fff;
+    --superficie-2: #fff;
+    --superficie-3: #fff;
+    --texto: #000;
+    --texto-suave: #222;
+    --texto-apagado: #444;
+    --borde: #999;
+    --borde-suave: #ccc;
+    --sombra: none;
+    --sombra-suave: none;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  /* Nada de interfaz: solo el contenido */
+  .nav,
+  .avisos,
+  .acciones,
+  .no-imprimir,
+  .barra-resumen,
+  .boton,
+  .boton-cerrar,
+  .buscador,
+  .banda {
+    display: none !important;
+  }
+
+  .app {
+    display: block;
+  }
+
+  .contenido {
+    padding: 0;
+    max-width: none;
+  }
+
+  .tarjeta,
+  .kpi,
+  .tabla-envoltura {
+    box-shadow: none !important;
+    border: 1px solid #999;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .tarjeta--studs::before {
+    display: none;
+  }
+
+  .tabla th {
+    background: #eee !important;
+    color: #000 !important;
+    position: static;
+  }
+
+  .insignia {
+    border: 1px solid #666;
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  .vista {
+    animation: none;
+  }
+
+  /* Encabezado de impresión con el nombre del club y la fecha */
+  .encabezado-impresion {
+    display: block !important;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #000;
+  }
+
+  .encabezado-impresion h1 {
+    font-size: 16pt;
+    margin: 0;
+  }
+
+  .encabezado-impresion p {
+    margin: 0.2rem 0 0;
+    color: #333;
+    font-size: 10pt;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+/* En pantalla, el encabezado de impresión no se ve */
+.encabezado-impresion {
+  display: none;
+}
