@@ -40,9 +40,10 @@ export const CONFIG = {
    *
    * Igual que el token, esta contraseña queda visible en el código de la
    * página publicada: es un filtro para el acceso casual, no seguridad real.
+   * Alguien que abra el código fuente de la página puede leerla.
    * Ver seguridad.mejorar.md si algún día quieres cerrarlo de verdad.
    */
-  CONTRASENA_COACH: 'admin-panel',
+  CONTRASENA_COACH: 'adminadmin',
 
   /**
    * Token del link compartido. Debe ser IDÉNTICO al de la tabla app_ajustes
